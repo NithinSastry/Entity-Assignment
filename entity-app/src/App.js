@@ -2,10 +2,7 @@ import React from 'react';
 
 import EntityModel from './model/entity-model';
 
-import NoChildParent from './components/NoChildParent';
-import OneLevelChild from './components/OneLevelChild';
-import NestedChild from './components/NestedChild';
-
+import RenderEntities from './components/RenderEntities';
 import './App.css';
 
 class App extends React.Component {
@@ -28,11 +25,11 @@ class App extends React.Component {
   render() {
     if (this.state.modelLoaded) {
       const noCPEntities = this.entityModel.eNoChild;
+      const entityOneLevel = this.entityModel.eOneLevelChild;
       return (
-        <div className="app">
-          <NoChildParent entities={noCPEntities} />
-          <OneLevelChild />
-          <NestedChild />
+        <div className="App">
+          <RenderEntities entities={noCPEntities} />
+          <RenderEntities entities={entityOneLevel} />
         </div>
       );
     } else {

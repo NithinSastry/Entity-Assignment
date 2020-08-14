@@ -6,9 +6,11 @@ export default class EntityModel {
     this.entityMap = {};
     FetchEntities().then((results) => {
       this.entityMap = this.prepareMap(results);
+      console.log(this.entityMap);
       this.eNoChild = this.getENoChild();
+      console.log(this.eNoChild);
       this.eOneLevelChild = this.getEOneLevelChild();
-
+      console.log(this.eOneLevelChild);
       this.subscibers.forEach((callBack) => callBack());
     });
   }
@@ -73,16 +75,15 @@ export default class EntityModel {
         let newEntity = {};
         entity.children.forEach((child) => {
           const childEntity = this.entityMap[child];
-          if (
-            childEntity.children === undefined ||
-            childEntity.children.length === 0
-          ) {
+          if (!childEntity.children) {
             children.push(childEntity);
           }
         });
-        newEntity = { ...entity };
-        newEntity.children = children;
-        items.push(newEntity);
+        if (children.length > 0) {
+          newEntity = { ...entity };
+          newEntity.children = children;
+          items.push(newEntity);
+        }
       });
     return items;
   }

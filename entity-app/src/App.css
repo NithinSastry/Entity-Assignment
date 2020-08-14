@@ -1,10 +1,35 @@
 .App {
   /* text-align: center; */
-  border: 2px solid black;
+  /* border: 2px solid black; */
   width: 80%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+}
+
+.container {
+  border: 2px solid black;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+}
+
+.container-heading {
+  border-bottom: 2px solid black;
+  padding-bottom: 12px;
+  padding-left: 5px;
+}
+
+.container-children {
+  padding: 15px;
+}
+
+.card {
+  width: 25%;
+  border: 2px solid black;
+}
+
+.card-header {
+  border-bottom: 2px solid black;
 }
 
 .App-logo {
