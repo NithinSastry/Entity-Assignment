@@ -31,11 +31,47 @@
       "active": "true"
     },
     {
-      "sys_id": "c96d2c3d18400300964f2ff0d21a4ef0",
+      "sys_id": "hfuriy74387567346584787983928riuehwi",
       "parent": {
         "value": "016d2c3d18400300964f2ff0d21a4eeb"
       },
-      "short_description": "Marketing planning application",
+      "short_description": "Marketing application",
+      "name": "Develop and manage plans",
+      "active": "true"
+    },
+    {
+      "sys_id": "67rw6e76r7ewruyghgduysgfydfs",
+      "parent": {
+        "value": "016d2c3d18400300964f2ff0d21a4eeb"
+      },
+      "short_description": "planning application",
+      "name": "marketing plans",
+      "active": "true"
+    },
+    {
+      "sys_id": "7t78dtfuygsdufgusdf677t7f6t7d6sf",
+      "parent": {
+        "value": "016d2c3d18400300964f2ff0d21a4eeb"
+      },
+      "short_description": "Marketing application",
+      "name": "Develop plans",
+      "active": "true"
+    },
+    {
+      "sys_id": "fhsdiuhfiuhduh7ew7ft7ewtfgegwgfueuw",
+      "parent": {
+        "value": "016d2c3d18400300964f2ff0d21a4eeb"
+      },
+      "short_description": "application",
+      "name": "Develop and manage marketing plans",
+      "active": "true"
+    },
+    {
+      "sys_id": "fhsdhfjhsdkjhfdsftd7ft77t",
+      "parent": {
+        "value": "016d2c3d18400300964f2ff0d21a4eeb"
+      },
+      "short_description": "planning application",
       "name": "Develop and manage marketing plans",
       "active": "true"
     },
@@ -50,6 +86,15 @@
     },
     {
       "sys_id": "cd6d2c3d18400300964f2ff0d21a4ee7",
+      "parent": {
+        "value": "016d2c3d18400300964f2ff0d21a4ee4"
+      },
+      "short_description": "",
+      "name": "Generate and define new product/service ideas",
+      "active": "true"
+    },
+    {
+      "sys_id": "cd6d2c3d18400300964f2ff0d21a4ee8",
       "parent": {
         "value": "016d2c3d18400300964f2ff0d21a4ee4"
       },
