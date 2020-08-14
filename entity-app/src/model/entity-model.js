@@ -2,14 +2,21 @@ import FetchEntities from './../utils/service-broker';
 export default class EntityModel {
   constructor() {
     this.loaded = false;
+    this.subscibers = [];
     this.entityMap = {};
     FetchEntities().then((results) => {
       this.entityMap = this.prepareMap(results);
-      console.log(this.entityMap);
-      console.log(this.getENoChild());
-      console.log(this.getEOneLevelChild());
-      this.loaded = true;
+      this.eNoChild = this.getENoChild();
+      this.eOneLevelChild = this.getEOneLevelChild();
+
+      this.subscibers.forEach((callBack) => callBack());
     });
+  }
+
+  subscribe(callBack) {
+    if (callBack && typeof callBack === 'function') {
+      this.subscibers.push(callBack);
+    }
   }
 
   prepareMap(results) {

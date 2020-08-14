@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import EntityModel from './model/entity-model';
 
-const entityModel = new EntityModel();
+// const entityModel = new EntityModel();
 
 ReactDOM.render(
   <React.StrictMode>

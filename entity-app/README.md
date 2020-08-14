@@ -1,4 +1,5 @@
 TODO: check why empty array in oneLevelNestedChildren
+TODO: handle edge cases
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
