@@ -120,9 +120,7 @@
     },
     {
       "sys_id": "qgslibfg2eq39uecqgslibfg2eq39uec",
-      "parent": {
-        "value": "7b6v3p2atyf7d5rk7b6v3p2atyf7d5rk"
-      },
+      "parent": "",
       "short_description": "Support and maintain products",
       "name": "Support and maintain product lines",
       "active": "true"

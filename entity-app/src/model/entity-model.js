@@ -6,11 +6,10 @@ export default class EntityModel {
     this.entityMap = {};
     FetchEntities().then((results) => {
       this.entityMap = this.prepareMap(results);
-      console.log(this.entityMap);
       this.eNoChild = this.getENoChild();
-      console.log(this.eNoChild);
       this.eOneLevelChild = this.getEOneLevelChild();
-      console.log(this.eOneLevelChild);
+      this.nestedEntities = this.getNestedEntities();
+      console.log(this.nestedEntities);
       this.subscibers.forEach((callBack) => callBack());
     });
   }
@@ -88,26 +87,40 @@ export default class EntityModel {
     return items;
   }
 
-  getChildren(key = '', items) {
+  getChildren(obj, key, depth) {
     const entity = this.entityMap[key];
-    let newEntity = {};
-    if (entity.children && entity.children.length > 0) {
-      entity.children.forEach((child) => {
-        newEntity = { ...entity };
-        newEntity.children = [];
-        newEntity.children.push(this.getChildren(child, items));
-      });
-    } else {
-      newEntity = { ...entity };
+    if (
+      (depth === 1 && !entity.children) ||
+      (depth === 1 && entity.children.length === 0)
+    ) {
+      return null;
     }
-    items.push(newEntity);
+    if (entity.children && entity.children.length > 0) {
+      const children = [];
+      entity.children.forEach((child) => {
+        const childObj = this.getChildren({}, child, depth + 1);
+        if (childObj) {
+          children.push(childObj);
+        }
+      });
+      if (children.length > 0) {
+        obj = { ...entity };
+        obj.children = children;
+      }
+      return obj;
+    } else if (depth !== 0) {
+      obj = { ...entity };
+      return obj;
+    }
+    return obj;
   }
-
-  getENestedChild() {
+  getNestedEntities() {
     const items = [];
     for (const key in this.entityMap) {
-      // const entity = this.entityMap[key];
-      this.getChildren(key, items);
+      const nestedTree = this.getChildren({}, key, 0);
+      if (Object.keys(nestedTree).length > 0) {
+        items.push(nestedTree);
+      }
     }
     return items;
   }
