@@ -4,8 +4,12 @@ const Card = (props) => {
   const { entity } = props;
   return (
     <div className="card">
-      <p className="card-header">{entity.name}</p>
-      <p className="card-desc">{entity.short_description}</p>
+      <div className="card-header">
+        <p>{entity.name}</p>
+      </div>
+      <div className="card-desc">
+        <p>{entity.short_description}</p>
+      </div>
     </div>
   );
 };

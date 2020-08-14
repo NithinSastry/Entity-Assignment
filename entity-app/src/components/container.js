@@ -29,7 +29,9 @@ const Container = (props) => {
   const { entity } = props;
   return (
     <div className="container">
-      <p className="container-heading">{entity.name}</p>
+      <div className="container-heading">
+        <p>{entity.name}</p>
+      </div>
       <div className="container-children">
         {entity.children &&
           entity.children.length > 0 &&
