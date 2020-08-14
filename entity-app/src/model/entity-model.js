@@ -1,12 +1,14 @@
 import FetchEntities from './../utils/service-broker';
 export default class EntityModel {
   constructor() {
+    this.loaded = false;
     this.entityMap = {};
     FetchEntities().then((results) => {
       this.entityMap = this.prepareMap(results);
       console.log(this.entityMap);
       console.log(this.getENoChild());
       console.log(this.getEOneLevelChild());
+      this.loaded = true;
     });
   }
 
@@ -78,7 +80,27 @@ export default class EntityModel {
     return items;
   }
 
+  getChildren(key = '', items) {
+    const entity = this.entityMap[key];
+    let newEntity = {};
+    if (entity.children && entity.children.length > 0) {
+      entity.children.forEach((child) => {
+        newEntity = { ...entity };
+        newEntity.children = [];
+        newEntity.children.push(this.getChildren(child, items));
+      });
+    } else {
+      newEntity = { ...entity };
+    }
+    items.push(newEntity);
+  }
+
   getENestedChild() {
     const items = [];
+    for (const key in this.entityMap) {
+      // const entity = this.entityMap[key];
+      this.getChildren(key, items);
+    }
+    return items;
   }
 }
