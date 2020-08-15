@@ -1,28 +1,15 @@
 import React from 'react';
 import Card from './Card';
-// const renderEntity = (entity) => {
-//   if (!entity.children) {
-//     return (
-//       <div key={entity.sys_id} className="entity-nochild-noparent">
-//         <p>{entity.name}</p>
-//       </div>
-//     );
-//   } else {
-//     return (
-//       <div key={entity.sys_id} className="entity-with-children">
-//         <p>{entity.name}</p>
-//         {entity.children.map((entity) => (
-//           <Card entity={entity} />
-//         ))}
-//       </div>
-//     );
-//   }
-// };
+import RenderEntities from './RenderEntities';
 
 const renderChildren = (entity) => {
-  return entity.children.map((child) => (
-    <Card entity={child} key={entity.sys_id} />
-  ));
+  return entity.children.map((child) => {
+    if (child.children && child.children.length > 0) {
+      return <RenderEntities key={child.sys_id} entities={[child]} />;
+    } else {
+      return <Card entity={child} key={child.sys_id} />;
+    }
+  });
 };
 
 const Container = (props) => {

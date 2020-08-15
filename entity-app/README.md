@@ -1,6 +1,5 @@
-TODO: check why empty array in oneLevelNestedChildren
 TODO: handle edge cases
-TODO: Responsive: container>child>
+TODO: App will break for loop logic
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

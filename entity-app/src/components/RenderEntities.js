@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Container from './Container';
-const RenderEntity = (props) => {
+const RenderEntities = (props) => {
   const { entities } = props;
   if (entities.length === 0) {
     return <p>No entities found</p>;
@@ -15,4 +15,4 @@ const RenderEntity = (props) => {
   );
 };
 
-export default RenderEntity;
+export default RenderEntities;

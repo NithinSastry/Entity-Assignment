@@ -26,10 +26,12 @@ class App extends React.Component {
     if (this.state.modelLoaded) {
       const noCPEntities = this.entityModel.eNoChild;
       const entityOneLevel = this.entityModel.eOneLevelChild;
+      const nestedEntities = this.entityModel.nestedEntities;
       return (
         <div className="App">
           <RenderEntities entities={noCPEntities} />
           <RenderEntities entities={entityOneLevel} />
+          <RenderEntities entities={nestedEntities} />
         </div>
       );
     } else {
