@@ -1,9 +1,10 @@
 ## Steps to run the project
 
-1. cd entity-app
-2. npm i
-3. npm run database
-4. npm start
+1. Clone the repo
+2. cd entity-app
+3. npm i
+4. npm run database
+5. npm start
 
 ## Items remaining
 
